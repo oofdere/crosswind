@@ -9,7 +9,7 @@ let { code, map } = transform({
             dimension(token) {
                 if (token.unit === 'tw') {
                     return {
-                        raw: `calc(${token.value * 0.25}rem)`
+                        raw: `${token.value * 0.25}rem`
                     }
                 }
             }
