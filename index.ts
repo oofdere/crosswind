@@ -1,6 +1,6 @@
 import { composeVisitors, transform, type CustomAtRules, type Visitor } from 'lightningcss';
 
-export const twUnit: Visitor<CustomAtRules> = {
+export const spacing: Visitor<CustomAtRules> = {
     Token: {
         dimension(token) {
             if (token.unit === 'tw') {
@@ -16,7 +16,7 @@ let { code, map } = transform({
     filename: 'test.css',
     minify: true,
     code: new TextEncoder().encode('.foo {size: 0.25tw}'),
-    visitor: composeVisitors([twUnit])
+    visitor: composeVisitors([spacing])
 });
 
 console.log(code.toString())
