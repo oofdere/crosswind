@@ -1,4 +1,5 @@
-import { composeVisitors, type CustomAtRules, type Visitor } from 'lightningcss';
+import { type CustomAtRules, type Visitor } from 'lightningcss';
+import composeVisitors from "../node_modules/lightningcss/node/composeVisitors.js";
 
 export type Plugin<C extends CustomAtRules> = {
     visitor: Visitor<C>,
