@@ -1,15 +1,14 @@
 import { composeVisitors, transform, type CustomAtRules, type Visitor } from "lightningcss";
-import { spacing } from "../index";
+import { composePlugins, spacing, type Plugin } from "../index";
 
 import { expect, test } from "bun:test";
 
-function testHelper(visitors: Visitor<CustomAtRules>[], input: string) {
+export function testHelper<C extends CustomAtRules>(visitors: (Plugin<C> | Visitor<C>)[], input: string) {
     let { code } = transform({
         filename: 'test.css',
         minify: true,
         code: new TextEncoder().encode(input),
-        visitor: composeVisitors(visitors),
-
+        ...composePlugins(visitors)
     });
 
     return code.toString()
