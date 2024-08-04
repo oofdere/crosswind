@@ -1,5 +1,5 @@
 import { type CustomAtRules, type Visitor } from 'lightningcss';
-import composeVisitors from "../node_modules/lightningcss/node/composeVisitors.js";
+import _ from "lodash";
 
 export type Plugin<C extends CustomAtRules> = {
     visitor: Visitor<C>,
@@ -8,18 +8,17 @@ export type Plugin<C extends CustomAtRules> = {
 
 export function composePlugins<C extends CustomAtRules>(plugins: (Plugin<C> | Visitor<C>)[]) {
     let customAtRules: CustomAtRules = {};
-    let visitors: Visitor<CustomAtRules>[] = [];
+    let visitor: Visitor<CustomAtRules> = {};
 
     plugins.forEach(p => {
         if ('visitor' in p) {
-            visitors.push(p.visitor)
+            _.merge(visitor, p.visitor)
             if (p.customAtRules) { Object.assign(customAtRules, p.customAtRules) }
         } else {
-            visitors.push(p)
+            _.merge(visitor, p)
+
         }
     });
 
-    return {
-        customAtRules, visitor: composeVisitors(visitors)
-    }
+    return { customAtRules, visitor }
 }

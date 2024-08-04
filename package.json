@@ -9,6 +9,8 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "lightningcss": "^1.25.1"
+    "@types/lodash": "^4.17.7",
+    "lightningcss": "^1.25.1",
+    "lodash": "^4.17.21"
   }
 }

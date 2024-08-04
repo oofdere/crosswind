@@ -1,13 +1,12 @@
-import { transform } from "lightningcss";
-import { composePlugins, spacing, screens, colorScheme } from ".";
+import { composeVisitors, transform } from "lightningcss";
+import { composePlugins, spacing, screens, colorScheme, crosswind } from ".";
 
-const a = {
+
+let { code, map } = transform({
     filename: 'test.css',
     minify: true,
-    code: new TextEncoder().encode('.foo {color: red; @light {color: green;} @dark {color: yellow;}}'),
-    ...composePlugins([colorScheme]),
-}
-
-let { code, map } = transform(a);
+    code: new TextEncoder().encode('.foo{color: red;@light {color: green;}; @dark {color:yellow;}}'),
+    ...crosswind
+});
 
 console.log(code.toString())
