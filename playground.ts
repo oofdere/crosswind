@@ -1,11 +1,11 @@
 import { transform } from "lightningcss";
-import { composePlugins, spacing, screens } from ".";
+import { composePlugins, spacing, screens, colorScheme } from ".";
 
 const a = {
     filename: 'test.css',
     minify: true,
-    code: new TextEncoder().encode('.foo {color: red; @screen sm {color: green;}}'),
-    ...composePlugins([spacing, screens]),
+    code: new TextEncoder().encode('.foo {color: red; @light {color: green;} @dark {color: yellow;}}'),
+    ...composePlugins([colorScheme]),
 }
 
 let { code, map } = transform(a);

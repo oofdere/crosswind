@@ -20,8 +20,7 @@ export const screens: Plugin<CustomAtRules> = {
         Rule: {
             custom: {
                 screen(rule) {
-                    console.log(rule)
-                    if (rule.prelude.value as string in breakpoints) {
+                    if (typeof rule.prelude.value === 'string' && rule.prelude.value in breakpoints) {
 
                         return {
                             type: 'media',
