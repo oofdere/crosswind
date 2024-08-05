@@ -12,13 +12,15 @@ I also really like semantic values, and Tailwind gives you sensible semantic val
 
 ## roadmap
  - [x] `tw` units
- - [ ] `@screen <breakpoint>` queries
- - [ ] `@dark` and `@light` queries
+ - [x] `@screen <breakpoint>` queries
+ - [x] `@dark` and `@light` queries
+ - [x] `size` property that sets width and height
  - [ ] `aspect-ratio: square` and `aspect-ratio: video`
  - [ ] semantic `perspective`s
- - [ ] translations as properties
  - [ ] preflight
  - [ ] typography
+ - [ ] inline variables
+ - [ ] `dark-light()`, `@light`, and `@dark` polyfilled for the multiple strategies in tailwind
  - [ ] (maybe) daisyui and/or shadcn port
  - [ ] (maybe) container queries
  - [ ] respect tailwind config (prob only if there's financial demand lmao)
