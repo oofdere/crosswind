@@ -10,6 +10,61 @@ This has been possible with `@apply` in the past, but that always felt like a ve
 
 I also really like semantic values, and Tailwind gives you sensible semantic values (sm, md, lg, xl, screen, etc.) which really helps me avoid decision paralysis.
 
+## features
+
+### `tw` units
+
+tailwind sizing units
+
+```css
+.foo {
+    width: 12tw;
+    height: calc(12tw / 2);
+}
+```
+
+### `@screen` queries
+
+query for tailwind breakpoints
+
+```css
+.foo {
+    color: red;
+
+    @screen md {
+        color: blue;
+    }
+}
+```
+
+### `@light` and `@dark` queries
+
+shorthand for light and dark queries
+
+```css
+.foo {
+    @light {
+        color: black;
+    }
+
+    @dark {
+        color: white;
+    }
+}
+```
+
+### `size` property
+
+set width and height at once
+
+```css
+.foo {
+    size: 12tw;
+}
+```
+
+### 
+
 ## roadmap
  - [x] `tw` units
  - [x] `@screen <breakpoint>` queries
