@@ -1,7 +1,12 @@
 {
-	"name": "crosswind",
+	"name": "lightningcss-plugin-crosswind",
 	"module": "index.ts",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"type": "module",
+	"version": "0.1.0",
+	"license": "MIT",
+	"files": ["dist/*"],
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3",
 		"@types/bun": "latest"

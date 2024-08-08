@@ -21,7 +21,7 @@ export function composePlugins<C extends CustomAtRules>(
 		} else {
 			_.merge(visitor, p);
 		}
-	};
+	}
 
 	return { customAtRules, visitor };
 }
