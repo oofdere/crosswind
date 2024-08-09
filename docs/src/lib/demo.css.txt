@@ -1,0 +1,13 @@
+body {
+	@dark {
+		color: white;
+		background-color: black;
+	}
+}
+
+.box {
+	size: 8tw;
+	@screen md {
+		size: 16tw;
+	}
+}
