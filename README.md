@@ -1,14 +1,11 @@
 # crosswind
 
-a.k.a. tailwind-in-css. doesn't work yet
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/oofdere/crosswind/main.yml)
+![NPM Version](https://img.shields.io/npm/v/lightningcss-plugin-crosswind)
+![NPM License](https://img.shields.io/npm/l/lightningcss-plugin-crosswind)
+[![Formatted with Biome](https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome)](https://biomejs.dev/)
 
-## why?
-
-My main motivation is to easily access the TailwindCSS design system in CSS, which has saved me from many, many hours of decision paralysis by providing sensible defaults. I don't hate utility classes but I do enjoy writing actual CSS as well, especially when I'm doing dynamic styling, or writing a library that might end up being used without Tailwind installed.
-
-This has been possible with `@apply` in the past, but that always felt like a very messy solution to me since you avoid standard CSS syntax, as the Tailwind team has also pointed out. Tailwind v4 makes this easier, by providing a set of standard variables that define the theme, however this just means more things to memorize, larger CSS files, and since these variables are not dynamic, you also sometimes have to do very ugly things like `calc(var(--spacing-0_5) / 2)` or `calc(var(--spacing-32) + var(--spacing-2))` to get the values you need.
-
-I also really like semantic values, and Tailwind gives you sensible semantic values (sm, md, lg, xl, screen, etc.) which really helps me avoid decision paralysis.
+a.k.a. tailwind-in-css.
 
 ## features
 
@@ -63,39 +60,41 @@ set width and height at once
 }
 ```
 
-### 
-
-## roadmap
- - [x] `tw` units
- - [x] `@screen <breakpoint>` queries
- - [x] `@dark` and `@light` queries
- - [x] `size` property that sets width and height
- - [ ] `aspect-ratio: square` and `aspect-ratio: video`
- - [ ] semantic `perspective`s
- - [ ] preflight
- - [ ] typography
- - [ ] inline variables
- - [ ] `dark-light()`, `@light`, and `@dark` polyfilled for the multiple strategies in tailwind
- - [ ] (maybe) daisyui and/or shadcn port
- - [ ] (maybe) container queries
- - [ ] respect tailwind config (prob only if there's financial demand lmao)
-
 ## how?
-To install dependencies:
+First, set up LightningCSS, then:
 
 ```bash
-bun install
+bun add lightningcss-plugin-crosswind
 ```
 
-To run:
+and then just update your LightningCSS config. For instance, with Vite:
 
-```bash
-bun run index.ts
+```ts
+import { defineConfig } from 'vite';
+import { crosswind } from 'lightningcss-plugin-crosswind';
+
+export default defineConfig({
+	plugins: [],
+	css: {
+		transformer: 'lightningcss',
+		lightningcss: {
+			...crosswind
+		}
+	},
+	build: {
+		cssMinify: 'lightningcss'
+	}
+});
 ```
 
-To test:
-```bash
-bun test
-```
+## why?
+
+My main motivation is to easily access the TailwindCSS design system in CSS, which has saved me from many, many hours of decision paralysis by providing sensible defaults. I don't hate utility classes but I do enjoy writing actual CSS as well, especially when I'm doing dynamic styling, or writing a library that might end up being used without Tailwind installed.
+
+This has been possible with `@apply` in the past, but that always felt like a very messy solution to me since you avoid standard CSS syntax, as the Tailwind team has also pointed out. Tailwind v4 makes this easier, by providing a set of standard variables that define the theme, however this just means more things to memorize, larger CSS files, and since these variables are not dynamic, you also sometimes have to do very ugly things like `calc(var(--spacing-0_5) / 2)` or `calc(var(--spacing-32) + var(--spacing-2))` to get the values you need.
+
+I also really like semantic values, and Tailwind gives you sensible semantic values (sm, md, lg, xl, screen, etc.) which really helps me avoid decision paralysis.
+
+---
 
 This project was created using `bun init` in bun v1.1.21. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

@@ -1,22 +1,29 @@
 {
-	"name": "lightningcss-plugin-crosswind",
-	"module": "index.ts",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"type": "module",
-	"version": "0.1.0",
-	"license": "MIT",
-	"files": ["dist/*"],
-	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
-		"@types/bun": "latest"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
-	},
-	"dependencies": {
-		"@types/lodash": "^4.17.7",
-		"lightningcss": "^1.25.1",
-		"lodash": "^4.17.21"
-	}
+  "name": "lightningcss-plugin-crosswind",
+  "keywords": [
+    "lightningcss-plugin",
+    "lightningcss",
+    "tailwindcss"
+  ],
+  "module": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "version": "0.1.1",
+  "license": "MIT",
+  "files": [
+    "dist/*"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.17.7",
+    "lightningcss": "^1.25.1",
+    "lodash": "^4.17.21"
+  }
 }
