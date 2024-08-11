@@ -1,5 +1,6 @@
 import type { CustomAtRules, Visitor } from "lightningcss";
-import _ from "lodash";
+import { mergician } from 'mergician';
+
 
 export type Plugin<C extends CustomAtRules> = {
 	visitor: Visitor<C>;
@@ -10,17 +11,18 @@ export function composePlugins<C extends CustomAtRules>(
 	plugins: (Plugin<C> | Visitor<C>)[],
 ) {
 	const customAtRules: CustomAtRules = {};
-	const visitor: Visitor<CustomAtRules> = {};
+	let visitor: Visitor<CustomAtRules> = {};
 
 	for (const p of plugins) {
 		if ("visitor" in p) {
-			_.merge(visitor, p.visitor);
+			visitor = mergician(visitor, p.visitor);
 			if (p.customAtRules) {
 				Object.assign(customAtRules, p.customAtRules);
 			}
 		} else {
-			_.merge(visitor, p);
+			visitor = mergician(visitor, p);
 		}
+		console.log(visitor)
 	}
 
 	return { customAtRules, visitor };

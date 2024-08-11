@@ -22,8 +22,7 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@types/lodash": "^4.17.7",
     "lightningcss": "^1.26.0",
-    "lodash": "^4.17.21"
+    "mergician": "^2.0.2"
   }
 }
