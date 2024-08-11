@@ -9,7 +9,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "files": [
     "dist/*"
@@ -24,5 +24,15 @@
   "dependencies": {
     "lightningcss": "^1.26.0",
     "mergician": "^2.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oofdere/crosswind"
+  },
+  "author": {
+    "name": "Tibet Tornaci",
+    "email": "oofdere@hey.com",
+    "url": "https://oof.dere.systems"
+  },
+  "homepage": "https://github.com/oofdere/crosswind"
 }
