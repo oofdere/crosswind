@@ -19,11 +19,11 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "@types/lodash": "^4.17.7",
-    "lightningcss": "^1.25.1",
+    "lightningcss": "^1.26.0",
     "lodash": "^4.17.21"
   }
 }
